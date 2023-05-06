@@ -1,0 +1,124 @@
+% 文件名：MainBody.tex
+% 文件描述：四川大学2020研究生硕/博士 LaTeX 模版
+% 作者：Yu Wang
+% 修改日期：2023年
+ 
+% 设置文档属性
+% 参数说明
+% professional: 专业学位
+% academic: 学术学位
+% master: 硕士
+% doctor: 博士
+% approval: 送审版本，将不生成声明
+% secret: 保密论文，将显示密级
+% color: 红色川大logo
+\documentclass[academic,doctor,color]{./Template/scuthesis2020}
+
+
+ % AMS Package
+\usepackage{amsfonts}
+\usepackage{amsmath,amsfonts,amssymb,amscd}
+\usepackage{latexsym,mathrsfs, amscd,amsthm,verbatim}
+
+\usepackage{ragged2e}
+
+%调整间距
+%\topmargin 2 cm
+\setlength{\parskip}    {3pt plus1pt minus2pt}  %段落间距
+%\setlength{\baselineskip}    {20pt plus2pt minus1pt} %字号的基本距离
+%\renewcommand{\baselineskip}{2} %字号的基本距离
+%\setlength{\textheight} {21.5true cm}               %文本区域高度21.5cm
+%\setlength{\textwidth}  {14.4true cm}               %文本区域宽度14.5cm
+
+% 解决fancy抱怨说标题高度太低的问题
+\setlength{\headheight}{15pt}
+
+\allowdisplaybreaks
+
+% 一些数学记号
+\def\deq{\mathop{\buildrel\Delta\over=}}
+
+\begin{document}
+% 设置文档信息
+\unitid{10610} % 单位代码
+\STUnumber{STUnumber} % 学号或送审编号
+\securityClassification{秘密} % 密级：公开/内部/秘密/机密/绝密. 当不使用secret时，不显示
+\securityYear{3} % 保密年限
+\CoverTitle{CoverTitle} %封面标题
+\title{} % 论文全称
+\ENGtitle{ENGtitle} %论文全称英文
+% \school{\zihao{5}{这里是特别长的单位名称甚至一行不能显示}} % 如果太长超出一行，可以根据显示效果修改字号，这里为5号字
+\school{school} % 培养单位
+\ENGschool{Computer Science} % 培养单位英文
+\author{author} % 作者姓名
+\ENGauthor{ENGauthor} % 作者英文名
+\supervisor{supervisor} % 指导教师
+\ENGsupervisor{ENGsupervisor} % 指导教师英文
+\degreeclass{degreeclass} % 学位类别
+\ENGdegreeclass{Master of Engineering} % 学位类别英文
+\major{major} % 学科专业或领域名称
+\ENGmajor{ENGmajor} % 学科专业或领域名称英文
+\hasmajor{1} % 若有领域则为1，否则改为0
+\researchDirection{researchDirection} % 若有领域则为1，否则改为0
+\completedate{2023年5月6日}
+\defensedate{二〇二三年五月} % 论文答辩时间
+\grantdate{二〇二三年五月} % 学位授予时间
+\accomplishdate{二〇二三年三月} % 论文完成时间
+\statementdate{February, 2020} % 声明时间
+\direction{XXX}
+\ENGdirection{Direction Name}
+\keywords{keywords }
+\ENGkeywords{ENGkeywords}
+
+% 自动制作封面
+\maketitle
+
+% 设置论文正文前的页码、页眉等
+\frontmatter\pagenumbering{Roman}\pagestyle{fancy}
+
+% todo 列表页，如果要显示，需要在文档类中加入todo选项
+\showToDoListPage
+
+% 包含摘要
+\include{Chapters/Abstract}
+% 自动制作目录
+\maketoc
+% 自动制作图表目录
+%\makefigtablist
+% 包含缩略词表
+%\include{Chapters/0_1_Abbreviations}
+% 包含符号表
+%\include{Chapters/0_2_Symbols}
+
+% 设置论文正文部分的页码、页眉等
+\mainmatter\pagenumbering{arabic}\pagestyle{fancy}
+
+% 包含第一章、第二章等等
+\include{Chapters/Introduction}
+\include{Chapters/FutureWork}
+
+\appendix
+
+\include{Chapters/Preliminary}
+
+
+% 设置论文正文后的式样
+\backmatter
+% 按国标自动制作参考文献
+% 参考文献数据文件为本目录下的ReferenceBase.bib
+\begin{reference}
+	\bibliography{reference}
+\end{reference}
+
+
+% 包含在读期间科研成果
+\include{Chapters/Achievements}
+
+
+% 包含致谢
+\makethanks
+
+% 自动制作中英文声明
+\makestatement
+
+\end{document}
