@@ -42,7 +42,10 @@
 % 此文档类以 ctexbook 为基础，设定页面尺寸为 A4，默认字号为小四号。
 % CJKfntef 宏包提供了 \maketitle 中用到的 \CJKunderline 命令。
 % 加上fontset=windows来匹配Windows的字体
-\LoadClass[a4paper,UTF8,oneside, openright, zihao=-4,fontset=windows]{ctexbook}
+% \LoadClass[a4paper,UTF8,oneside, openright, zihao=-4,fontset=windows]{ctexbook}
+% \LoadClass[a4paper,UTF8,oneside, openright, zihao=-4,fontset=mac]{ctexbook}
+% 可以让 ctex 宏包自动决定使用哪个系统的字符集
+\LoadClass[a4paper,UTF8,oneside, openright, zihao=-4]{ctexbook}
 
 % 使用tocloft宏包修改目录样式
 \RequirePackage{tocloft}
@@ -92,8 +95,8 @@
 
 % 这一段将heiti重新设置，避免对黑体加粗
 % 参考https://www.zhihu.com/question/58456658
-\let\heiti\relax
-\newCJKfontfamily\heiti{黑体}[BoldFont=黑体]
+% \let\heiti\relax
+% \newCJKfontfamily\heiti{黑体}[BoldFont=黑体]
 
 % 解决Font shape `U/rsfs/m/n' in size <16.06> not available 的问题
 % 参考 https://tex.stackexchange.com/questions/58087/how-to-remove-the-warnings-font-shape-ot1-cmss-m-n-in-size-4-not-available

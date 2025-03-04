@@ -253,3 +253,4 @@ TSWLatexianTemp*
 
 # jabref
 *.tmp
+.DS_Store
